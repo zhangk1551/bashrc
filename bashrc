@@ -12,6 +12,8 @@ YELLOW="\[$(tput setaf 3)\]"
 RESET="\[$(tput sgr 0)\]"
 PS1="${YELLOW}\h${RESET} ${MAGENTA}\W${RESET}> "
 
+PROMPT_COMMAND="history -a; history -r"
+
 case ${TERM} in
   xterm*|rxvt*|Eterm|aterm|kterm|gnome*)
     PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033]0;%s@%s:%s\007" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
